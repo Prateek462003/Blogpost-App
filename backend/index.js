@@ -31,7 +31,7 @@ app.use((err, req, res, next)=>{
 });
 
 
-app.listen(5000 || process.env.PORT, ()=>{
+app.listen(process.env.PORT, ()=>{
     connect();
     console.log("Backend Server Running");
 });
