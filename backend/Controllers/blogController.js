@@ -2,7 +2,12 @@ const BlogModel = require("../Models/blogModel");
 
 // Create a Blog
 const createBlog = async(req, res, next)=>{
-    const newBlog = new BlogModel(req.body);
+    const newBlog = new BlogModel({
+        title:req.body.title,
+        image:req.body.image,
+        description:req.body.description,
+    });
+    
     try{
         const savedHotel = await newBlog.save();
         res.status(200).json(savedHotel);

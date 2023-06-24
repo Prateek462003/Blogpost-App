@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 const blogRoute = require("./Routes/Blog");
+const cors  = require("cors");
 dotenv.config();
 const app = express();
 
@@ -14,8 +15,9 @@ const connect = async()=>{
         console.log(err);
     }
 }
+app.use(cors());
 app.use(express.json());
-app.use("/api/blog", blogRoute);
+app.use("/api", blogRoute);
 
 app.use((err, req, res, next)=>{
     const errStatus = err.status || 500;

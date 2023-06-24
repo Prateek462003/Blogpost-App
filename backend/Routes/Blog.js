@@ -9,7 +9,7 @@ router.get("/", getAllBlogs);
 router.get("/:id", getBlog);
 
 // UPDATE
-router.put("/", updateBlog);
+router.put("/:id", updateBlog);
 
 // DELETE
 router.delete("/:id", deleteBlog);
